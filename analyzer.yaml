@@ -54,7 +54,7 @@ spec:
       serviceAccountName: security-analyzer
       containers:
         - name: security-analyzer
-          image: uripld/k8s-pod-security-standards-analyzer:0.3
+          image: uripld/k8s-pod-security-standards-analyzer:0.4
           imagePullPolicy: Always
           resources:
             requests:
