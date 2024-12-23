@@ -40,19 +40,19 @@ def check_container_security(container):
         if not getattr(sc, 'read_only_root_filesystem', False):
             security_issues.append("Root filesystem is writable")
 
-    # Check resource limits
-    if not container.resources:
-        security_issues.append("No resource limits defined")
-    elif not container.resources.limits:
-        security_issues.append("No resource limits set (only requests)")
+    # # Check resource limits
+    # if not container.resources:
+    #     security_issues.append("No resource limits defined")
+    # elif not container.resources.limits:
+    #     security_issues.append("No resource limits set (only requests)")
 
-    # Check image pull policy
-    if container.image_pull_policy != 'Always':
-        security_issues.append(f"Image pull policy is {container.image_pull_policy}, recommended: Always")
+    # # Check image pull policy
+    # if container.image_pull_policy != 'Always':
+    #     security_issues.append(f"Image pull policy is {container.image_pull_policy}, recommended: Always")
 
-    # Check if using latest tag
-    if container.image and ':latest' in container.image:
-        security_issues.append("Using 'latest' tag - not recommended")
+    # # Check if using latest tag
+    # if container.image and ':latest' in container.image:
+    #     security_issues.append("Using 'latest' tag - not recommended")
 
     return security_issues
 
