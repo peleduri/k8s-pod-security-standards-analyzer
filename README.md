@@ -20,7 +20,7 @@ This analyzer runs as a pod within your Kubernetes cluster and continuously eval
 
 - Kubernetes cluster (1.22+)
 - kubectl CLI tool
-- Docker (for building the container image)
+- Docker/Podman (for building the container image)
 - Python 3.9+
 
 ## Quick Start
