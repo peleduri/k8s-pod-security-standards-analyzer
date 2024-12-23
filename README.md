@@ -2,7 +2,6 @@
 
 A specialized tool for analyzing Pod Security Standards (PSS) across Kubernetes namespaces, helping cluster administrators determine and enforce the appropriate security levels (Privileged/Baseline/Restricted) for their workloads.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Overview
 
