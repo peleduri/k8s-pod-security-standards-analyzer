@@ -54,7 +54,7 @@ spec:
       serviceAccountName: security-analyzer
       containers:
         - name: security-analyzer
-          image: uripewix/security-analyzer:latest
+          image: uripld/security-analyzer
           imagePullPolicy: Always
           resources:
             requests:
