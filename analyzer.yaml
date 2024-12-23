@@ -1,3 +1,4 @@
+---
 # serviceaccount.yaml
 apiVersion: v1
 kind: ServiceAccount
@@ -52,6 +53,10 @@ spec:
     spec:
       automountServiceAccountToken: true
       serviceAccountName: security-analyzer
+      securityContext:
+        runAsUser: 1000
+        runAsNonRoot: true
+        fsGroup: 1000
       containers:
         - name: security-analyzer
           image: uripld/k8s-pod-security-standards-analyzer:0.4
@@ -63,9 +68,35 @@ spec:
             limits:
               memory: "256Mi"
               cpu: "200m"
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
           volumeMounts:
             - name: logs
               mountPath: /var/log
       volumes:
         - name: logs
           emptyDir: {}
+---
+# networkpolicy.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: deny-all-except-allowed
+  namespace: security-monitoring
+spec:
+  podSelector:
+    matchLabels:
+      app: security-analyzer
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    - from:
+        - podSelector: {}
+  egress:
+    - to:
+        - podSelector: {}
