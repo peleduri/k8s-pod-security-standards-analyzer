@@ -6,6 +6,7 @@ A specialized tool for analyzing Pod Security Standards (PSS) across Kubernetes 
 
 
 https://youtu.be/RnNI8zkoCNI
+https://img.youtube.com/vi/RnNI8zkoCNI/maxresdefault.jpg
 
 
 
