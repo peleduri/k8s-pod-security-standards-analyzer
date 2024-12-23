@@ -7,7 +7,7 @@ ENV PATH="/app/venv/bin":$PATH
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
-FROM cgr.dev/chainguard/python:latest
+FROM cgr.dev/chainguard/python:latest-dev
 
 WORKDIR /app
 
@@ -16,4 +16,5 @@ COPY analyzer.py .
 COPY --from=dev /app/venv /app/venv
 ENV PATH="/app/venv/bin:$PATH"
 
-ENTRYPOINT ["python", "analyzer.py"]
+# Stream the log file to stdout and run the main application
+ENTRYPOINT ["/bin/bash", "-c", "python analyzer.py & while [ ! -f /var/log/security-analysis.log ]; do sleep 1; done; tail -f /var/log/security-analysis.log"]
