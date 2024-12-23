@@ -112,9 +112,6 @@ The analyzer runs as a Kubernetes deployment with:
 4. Push to the branch
 5. Create a Pull Request
 
-## License
-
-MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Support
 
