@@ -1,12 +1,19 @@
-FROM python:3.9-slim
+FROM cgr.dev/chainguard/python:latest-dev as dev
 
 WORKDIR /app
 
-# Install required packages
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN python -m venv venv
+ENV PATH="/app/venv/bin":$PATH
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+
+FROM cgr.dev/chainguard/python:latest
+
+WORKDIR /app
 
 # Copy application code
 COPY analyzer.py .
+COPY --from=dev /app/venv /app/venv
+ENV PATH="/app/venv/bin:$PATH"
 
-CMD ["python", "analyzer.py"]
+ENTRYPOINT ["python", "analyzer.py"]
