@@ -92,7 +92,7 @@ Analysis report:
 }
 ```
 
-## Configuration
+## Future Configuration
 
 Available environment variables:
 ```yaml
