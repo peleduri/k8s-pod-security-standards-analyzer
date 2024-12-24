@@ -94,7 +94,7 @@ Analysis report:
 
 ## Future Configuration
 
-Available environment variables:
+environment variables:
 ```yaml
 SCAN_INTERVAL: "24h"         # How often to run the analysis
 LOG_LEVEL: "INFO"           # Logging verbosity
