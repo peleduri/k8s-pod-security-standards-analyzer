@@ -8,9 +8,6 @@ A specialized tool for analyzing Pod Security Standards (PSS) across Kubernetes 
 [![Watch the video](https://img.youtube.com/vi/RnNI8zkoCNI/maxresdefault.jpg)](https://youtu.be/RnNI8zkoCNI)
 
 
-
-
-
 ## Overview
 
 This analyzer runs as a pod within your Kubernetes cluster and continuously evaluates the security requirements of workloads across all namespaces. It determines whether namespaces should run with Privileged, Baseline, or Restricted Pod Security Standards based on actual workload requirements.
